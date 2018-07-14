@@ -1,13 +1,14 @@
 var http = require("https");
+var config = require('./config');
 
 var options = {
     "protocol": "https:",
     "hostname": "api.github.com",
     "family": '4',
-    "path": "/search/users?q=jaybojaybojaybo",
+    "path": "/search/users?q=location:portland&per_page=10",
     "headers": {
         "header": "application/vnd.github.v3+json",
-        "User-Agent": "48558681e3ae16349193437c664ef84416ab7c77"
+        "User-Agent": config
     }
 };
 
@@ -20,8 +21,12 @@ var req = http.get(options, function (res) {
 
     res.on("end", function () {
         var body = Buffer.concat(chunks);
-        var result = JSON.parse(body).items;
-        console.log(result[0].login);
+        var results = JSON.parse(body).items;
+        var output = [];
+        results.forEach(result => {
+            output.push(result);
+            console.log(result.login);
+        });
     });
 });
 
