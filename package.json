@@ -1,0 +1,15 @@
+{
+  "name": "githubapi",
+  "version": "1.0.0",
+  "description": "github api to be used with threedb",
+  "main": "search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node search.js"
+  },
+  "author": "jaybojaybojaybo",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
